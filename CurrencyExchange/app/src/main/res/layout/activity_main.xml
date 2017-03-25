@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.developer.sangbarca.currencyexchange.MainActivity"
+    android:background="#a8ecb6">
+
+    <ListView
+        android:background="#e7f2a3"
+        android:id="@+id/listViewQG"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"></ListView>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textColor="#001ac4"
+        android:textSize="25sp"
+        android:id="@+id/textViewFrom"
+        android:layout_below="@id/listViewQG"
+        android:text="Convert from:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Spinner
+        android:background="#1689ba"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/textViewFrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/spinnerFrom" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textColor="#c60247"
+        android:textSize="25sp"
+        android:id="@+id/textViewTo"
+        android:layout_below="@id/spinnerFrom"
+        android:text="To:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Spinner
+        android:background="#dc7bb5"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/textViewTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/spinnerTo" />
+
+    <EditText
+        android:id="@+id/editTextMoney"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/spinnerTo"
+        android:textColorHint="#c509ef"
+        android:hint="Nhập số tiền cần chuyển"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/buttonConvert"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@id/editTextMoney"
+        android:text="Convert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/editTextMoney"
+        android:id="@+id/textViewKQ"
+        android:textSize="25sp"
+        android:text="Kết quả"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

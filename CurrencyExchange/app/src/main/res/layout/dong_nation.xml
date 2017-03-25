@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_marginLeft="20dp"
+        android:id="@+id/imageViewHinh"
+        android:src="@drawable/vietnam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:padding="10dp"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/textViewTen"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#0b26be"
+        android:text="England"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:padding="10dp"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/textViewTyGia"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#e91783"
+        android:text="$22.750"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
