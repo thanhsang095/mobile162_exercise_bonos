@@ -18,7 +18,7 @@ npm install bugsnag-react-native -save
 react-native link bugsnag-react-native
 ```
 
-Note: if you are using CocoaPods to manage dependencies in your React Native application, run pod install after react-native link
+Note: if you are using CocoaPods to manage dependencies in your React Native application, run `pod install` after `react-native link`
 
 ### Manual Link
 
@@ -86,17 +86,17 @@ At this point, Bugsnag should be installed and configured, and any unhandled err
 
 Bugsnag supports unminifying and demangling stacktraces using ProGuard files, LLVM debug symbol maps (dSYMs), and source maps to show a full stacktrace with methods, file paths, and line numbers for JavaScript and native errors.
 
-#### Uploading debug symbol maps (dSYMs) for iOS
+### 1. Uploading debug symbol maps (dSYMs) for iOS
 
-##### Using CocoaPods plugin
+#### Using CocoaPods plugin
 
 If you are using CocoaPods, installing the [cocoapods-bugsnag](https://github.com/bugsnag/cocoapods-bugsnag) plugin will add a build phase to upload dSYM files when you run `pod install`. To install, run `gem install cocoapods-bugsnag`.
 
 Once added, uploading your dSYM files to Bugsnag will occur automatically.
 
-#### Uploading source maps
+### 2. Uploading source maps
 
-##### Generating source maps
+#### Generating source maps
 **Debug variant**
 
 iOS example:
@@ -112,7 +112,7 @@ $ curl "http://localhost:8081/index.bundle?platform=android&dev=true&minify=fals
 $ curl "http://localhost:8081/index.bundle.map?platform=android&dev=true&minify=false" > android-debug.bundle.map
 ```
 
-**Release variant**'
+**Release variant**
 
 iOS example:
 
@@ -135,7 +135,7 @@ $ react-native bundle \
     --sourcemap-output android-release.bundle.map
 ```
 
-##### Uploading source maps to Bugsnag
+#### Uploading source maps to Bugsnag
 
 ```bash
 npm install -g bugsnag-sourcemaps
