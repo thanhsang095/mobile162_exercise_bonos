@@ -96,7 +96,7 @@ Once added, uploading your dSYM files to Bugsnag will occur automatically.
 
 ### 2. Uploading source maps
 
-### 2.1 Generating source maps
+#### 2.1 Generating source maps
 **Debug variant**
 
 iOS example:
@@ -135,7 +135,7 @@ $ react-native bundle \
     --sourcemap-output android-release.bundle.map
 ```
 
-### 2.2 Uploading source maps to Bugsnag
+#### 2.2 Uploading source maps to Bugsnag
 
 ```bash
 npm install -g bugsnag-sourcemaps
