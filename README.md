@@ -217,6 +217,34 @@ $ bugsnag-sourcemaps upload \
     --upload-sources
 ```
 
+#### Selecting an app version
+
+The app version argument (`--app-version`) needs to match a version shown in the “App” tab of an error.
+
+**Using package.json versioning**
+
+If you update your app’s version in your `package.json`, then you should set [appVersion](https://docs.bugsnag.com/platforms/react-native/configuration-options/#appversion) to this value when initializing Bugsnag:
+
+```js
+import { Client, Configuration } from 'bugsnag-react-native';
+
+const config = new Configuration('your-API-key');
+config.appVersion = require('./package.json').version;
+const bugsnag = new Client(config);
+```
+
+Then when you upload your source maps set --app-version to the same value.
+
+**Using native versioning**
+
+If you don’t set the version in your `package.json` you should set `--app-version` as follows when uploading source maps:
+
+- iOS: use the [Build Number](https://developer.apple.com/library/content/technotes/tn2420/_index.html) (called `versionCode` in Bugsnag)
+
+- Android: use the [versionCode](https://developer.android.com/studio/publish/versioning.html)
+
+These values are included by default in error reports and shown on the “App” tab.
+
 ## Reference
 
 - Website: https://docs.bugsnag.com/platforms/react-native
