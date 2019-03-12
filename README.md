@@ -39,25 +39,25 @@ compile project(':bugsnag-react-native')
 }
 ```
 3.  Add the library package to native packages listed in 
-    `android/{...}/MainApplication.java`:
-    
+`android/{...}/MainApplication.java`:
+
 ```java
 import com.bugsnag.BugsnagReactNative;
 // ...
 
 protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-        new MainReactPackage(), BugsnagReactNative.getPackage()
-    );
+return Arrays.<ReactPackage>asList(
+new MainReactPackage(), BugsnagReactNative.getPackage()
+);
 }
 ```
 4. Specify Google's maven repository in `build.gradle`:
 
 ```
 allprojects {
-    repositories {
-        maven { url 'https://maven.google.com' }
-    }
+repositories {
+maven { url 'https://maven.google.com' }
+}
 }
 ```
 
@@ -81,6 +81,25 @@ const bugsnag = new Client('YOUR-API-KEY-HERE');
 ```
 
 At this point, Bugsnag should be installed and configured, and any unhandled errors and native exceptions will be automatically detected and should appear in your Bugsnag dashboard.
+
+### Configuration options
+
+In addition to configuring a Bugsnag client with an API key, it can also be configured with additional options using a `Configuration` object.
+
+```js
+import { Client, Configuration } from "bugsnag-react-native";
+
+const configuration = new Configuration("YOUR-API-KEY"),
+bugsnag = new Client(configuration);
+```
+
+**notifyReleaseStages**
+
+By default, we notify Bugsnag of all exceptions that happen in your app. If you would like to change which release stages notify Bugsnag of exceptions you can set the `notifyReleaseStages` property:
+
+```js
+configuration.notifyReleaseStages = ['beta', 'production'];
+```
 
 ### Showing full stacktraces
 
@@ -118,21 +137,21 @@ iOS example:
 
 ```bash
 $ react-native bundle \
-    --platform ios \
-    --dev false \
-    --entry-file index.js \
-    --bundle-output ios-release.bundle \
-    --sourcemap-output ios-release.bundle.map
+--platform ios \
+--dev false \
+--entry-file index.js \
+--bundle-output ios-release.bundle \
+--sourcemap-output ios-release.bundle.map
 ```
 Android example:
 
 ```bash
 $ react-native bundle \
-    --platform android \
-    --dev false \
-    --entry-file index.js \
-    --bundle-output android-release.bundle \
-    --sourcemap-output android-release.bundle.map
+--platform android \
+--dev false \
+--entry-file index.js \
+--bundle-output android-release.bundle \
+--sourcemap-output android-release.bundle.map
 ```
 
 #### 2.2 Uploading source maps to Bugsnag
@@ -146,22 +165,22 @@ on iOS:
 
 ```bash
 $ bugsnag-sourcemaps upload \
-    --api-key YOUR_API_KEY_HERE \
-    --app-version 1.0.0 \
-    --minified-file ios-debug.bundle \
-    --source-map ios-debug.bundle.map \
-    --minified-url "http://localhost:8081/index.bundle?platform=ios&dev=true&minify=false"
+--api-key YOUR_API_KEY_HERE \
+--app-version 1.0.0 \
+--minified-file ios-debug.bundle \
+--source-map ios-debug.bundle.map \
+--minified-url "http://localhost:8081/index.bundle?platform=ios&dev=true&minify=false"
 ```
 
 on Android:
 
 ```bash
 $ bugsnag-sourcemaps upload \
-    --api-key YOUR_API_KEY_HERE \
-    --app-version 1.0.0 \
-    --minified-file android-debug.bundle \
-    --source-map android-debug.bundle.map \
-    --minified-url "http://10.0.2.2:8081/index.bundle?platform=android&dev=true&minify=false"
+--api-key YOUR_API_KEY_HERE \
+--app-version 1.0.0 \
+--minified-file android-debug.bundle \
+--source-map android-debug.bundle.map \
+--minified-url "http://10.0.2.2:8081/index.bundle?platform=android&dev=true&minify=false"
 ```
 
 **Release variant example**
@@ -170,23 +189,23 @@ iOS example:
 
 ```bash
 $ bugsnag-sourcemaps upload \
-    --api-key YOUR_API_KEY_HERE \
-    --app-version 1.0.0 \
-    --minified-file ios-release.bundle \
-    --source-map ios-release.bundle.map \
-    --minified-url main.jsbundle \
-    --upload-sources
+--api-key YOUR_API_KEY_HERE \
+--app-version 1.0.0 \
+--minified-file ios-release.bundle \
+--source-map ios-release.bundle.map \
+--minified-url main.jsbundle \
+--upload-sources
 ```
 Android example:
 
 ```bash
 $ bugsnag-sourcemaps upload \
-    --api-key YOUR_API_KEY_HERE \
-    --app-version 1.0.0 \
-    --minified-file android-release.bundle \
-    --source-map android-release.bundle.map \
-    --minified-url index.android.bundle \
-    --upload-sources
+--api-key YOUR_API_KEY_HERE \
+--app-version 1.0.0 \
+--minified-file android-release.bundle \
+--source-map android-release.bundle.map \
+--minified-url index.android.bundle \
+--upload-sources
 ```
 
 ## Reference
